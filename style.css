@@ -3,17 +3,40 @@ Theme Name: Twenty Twenty-Five Child
 Template: twentytwentyfive
 */
 
+/* Global settings */
 :root {
-    --primaryGreen: #005957;
-    --globalClamp: 1.5vw;
+    --primaryBlue: #164095;
+    --secondaryBlue: #416CAA;
+    --headingLineColor: #c2c2c2;
+    --globalClamp: 3.5vw;
 }
+
+body {
+    background-color: #F7F7F9;
+}
+
+p {
+   text-align: center;
+   font-size: clamp(16px, var(--globalClamp), 20px);
+}
+
+a.pageLink {
+    color: var(--secondaryBlue);
+}
+
+a.pageLink::after {
+  content: ">";
+  font-weight: bold;
+}
+
+
 
 /* Header */
 header {
     position: sticky;
     top: 0px;
     padding: 0px 18px 0px 18px;
-    background-color: rgb(246, 246, 246);
+    background-color: rgb(251, 251, 251);
     z-index: 1;
 }
 
@@ -25,17 +48,62 @@ header {
 }
 
 #siteLogo h1 {
-    font-size: clamp(23px, var(--globalClamp), 28px);
-    font-style: italic;
-    font-weight: bold;
+    font-size: clamp(25px, var(--globalClamp), 30px);
     border-bottom: 1px solid black;
-    border-color: var(--primaryGreen);
+    border-color: var(--primaryBlue);
     line-height: 1.2;
-    color: var(--primaryGreen);
     margin: 0px;
     letter-spacing: 2px;
 }
 
+#siteLogo h1 span:nth-child(1) {
+    color: var(--primaryBlue);
+    font-weight: bold;
+}
+
+#siteLogo h1 span:nth-child(2) {
+    color: var(--secondaryBlue);
+}
+
 #siteLogo svg {
-    width: 25px; 
+    width: clamp(25px, var(--globalClamp), 30px); 
+}
+
+
+
+/* Homepage */
+.headingLine {
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--headingLineColor);
+}
+
+h2.headingTitle {
+    font-size: clamp(22px, var(--globalClamp), 28px);
+    font-weight: bold;
+    color: var(--primaryBlue);
+}
+
+/* Homepage services */
+#servicesSection .servicesStack {
+    width: 210px;
+}
+
+#servicesSection svg {
+    width: clamp(40px, var(--globalClamp), 50px);
+    color: white;
+}
+
+#servicesSection h3 {
+    font-size: clamp(19px, var(--globalClamp), 23px);
+    color: white;
+    font-weight: bold;
+}
+
+#servicesSection p {
+    color: white;
+}
+
+#servicesSection hr {
+    width: 100%;
 }
