@@ -222,6 +222,26 @@ div#modalOverlay {
     margin: 0px;
 }
 
+/* Homepage numbers */
+.boxNumbersStack {
+    width: clamp(190px, var(--globalClamp), 220px);
+    background-color: #EFF0F3;
+    padding: 12px;
+}
+
+.boxNumbersStack p {
+    line-height: 1.2;
+}
+
+.boxNumbersStack p:nth-child(1) {
+    color: var(--primaryBlue);
+    font-size: clamp(36px, var(--globalClamp), 38px);
+    font-weight: bold;
+}
+
+
+
+
 /* Responsiveness */
 @media (max-width: 1199px) {
   .desktopOnlyHeading {
