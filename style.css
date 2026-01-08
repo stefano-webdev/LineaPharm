@@ -5,19 +5,26 @@ Template: twentytwentyfive
 
 /* Global settings */
 :root {
-    --primaryBlue: #164095;
+    --primaryBlue: #0A3A76;
     --secondaryBlue: #416CAA;
     --headingLineColor: #c2c2c2;
-    --globalClamp: 3.5vw;
+    --globalClamp: 1vw;
 }
 
 body {
-    background-color: #F7F7F9;
+    background-color: #f9f9f9;
+}
+
+h3 {
+    font-size: clamp(19px, var(--globalClamp), 23px);
+    color: white;
+    font-weight: bold;
+    margin: 12px 0px;
 }
 
 p {
-   text-align: center;
-   font-size: clamp(16px, var(--globalClamp), 20px);
+    text-align: center;
+    font-size: clamp(16px, var(--globalClamp), 20px);
 }
 
 a.pageLink {
@@ -25,8 +32,8 @@ a.pageLink {
 }
 
 a.pageLink::after {
-  content: ">";
-  font-weight: bold;
+    content: ">";
+    font-weight: bold;
 }
 
 
@@ -36,22 +43,22 @@ header {
     position: sticky;
     top: 0px;
     padding: 0px 18px 0px 18px;
-    background-color: rgb(251, 251, 251);
+    background-color: white;
     z-index: 1;
+    border-bottom: 1px solid rgb(227, 227, 227);
 }
 
 #siteLogo {
     display: flex;
-    align-items: center;
     gap: 7px;
     text-decoration: none;
 }
 
 #siteLogo h1 {
-    font-size: clamp(25px, var(--globalClamp), 30px);
+    font-size: clamp(26px, var(--globalClamp), 31px);
     border-bottom: 1px solid black;
     border-color: var(--primaryBlue);
-    line-height: 1.2;
+    line-height: 1.1;
     margin: 0px;
     letter-spacing: 2px;
 }
@@ -66,7 +73,7 @@ header {
 }
 
 #siteLogo svg {
-    width: clamp(25px, var(--globalClamp), 30px); 
+    width: clamp(25px, var(--globalClamp), 30px);
 }
 
 
@@ -79,31 +86,127 @@ header {
 }
 
 h2.headingTitle {
-    font-size: clamp(22px, var(--globalClamp), 28px);
+    font-size: clamp(23px, var(--globalClamp), 29px);
     font-weight: bold;
     color: var(--primaryBlue);
 }
 
 /* Homepage services */
-#servicesSection .servicesStack {
-    width: 210px;
+#servicesSectionHome .servicesStack,
+#sectorsSectionHome .sectorsStack {
+    width: clamp(210px, var(--globalClamp), 255px);
 }
 
-#servicesSection svg {
+#servicesSectionHome svg {
     width: clamp(40px, var(--globalClamp), 50px);
     color: white;
 }
 
-#servicesSection h3 {
-    font-size: clamp(19px, var(--globalClamp), 23px);
-    color: white;
-    font-weight: bold;
-}
-
-#servicesSection p {
+#servicesSectionHome p {
     color: white;
 }
 
-#servicesSection hr {
+#servicesSectionHome hr {
     width: 100%;
+}
+
+/* Homepage sectors */
+#sectorsSectionHome img {
+    width: 100%;
+}
+
+#sectorsSectionHome button.sectorBox {
+    padding: 0px;
+    border: 1px solid var(--primaryBlue);
+    background-color: var(--primaryBlue);
+}
+
+.sectorsStack button:focus {
+    outline: none;
+}
+
+.sectorsStack button:focus-visible {
+    outline: 2px solid rgb(71, 71, 71);
+}
+
+div.modalSector button {
+    position: absolute;
+    top: -13px;
+    right: -13px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid var(--primaryBlue);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px 0px 0px 0px;
+}
+
+div.modalSector img {
+    border-radius: 10px;
+    border: 1px solid rgb(114, 114, 114);
+}
+
+div.modalSector h3 {
+    text-align: center;
+    font-size: clamp(22px, var(--globalClamp), 26px);
+    letter-spacing: 1px;
+    margin: 12px 0px 25px 0px;
+    color: var(--primaryBlue);
+}
+
+div.modalSector h2 {
+    font-size: clamp(19px, var(--globalClamp), 23px);
+    font-weight: bold;
+    margin: 0px;
+}
+
+div.modalSector h2:nth-of-type(2) {
+    margin-top: 25px;
+}
+
+div.modalSector p {
+    text-align: left;
+    font-size: clamp(15px, var(--globalClamp), 19px);
+    color: rgb(47, 47, 47);
+    margin: 0px;
+}
+
+div.modalSector ul {
+    margin: 5px 0px 0px 0px;
+    font-size: clamp(15px, var(--globalClamp), 19px);
+}
+
+div.modalSector {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    background-color: #cde1ff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 20px;
+    z-index: 2;
+    width: 72%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+div.modalSector.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+div#modalOverlay {
+    margin: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
 }
