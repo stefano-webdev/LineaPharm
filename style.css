@@ -12,7 +12,7 @@ Template: twentytwentyfive
 }
 
 body {
-    background-color: #f9f9f9;
+    background-color: white;
 }
 
 h3 {
@@ -209,4 +209,22 @@ div#modalOverlay {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
     display: none;
+}
+
+/* Homepage certifications */
+#certificationsSectionHome img {
+    width: clamp(80px, var(--globalClamp), 100px);
+}
+
+#disclaimerCertifications {
+    font-size: clamp(13px, var(--globalClamp), 15px);
+    color: rgb(104, 104, 104);
+    margin: 0px;
+}
+
+/* Responsiveness */
+@media (max-width: 1199px) {
+  .desktopOnlyHeading {
+    display: none;
+  }
 }
