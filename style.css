@@ -7,11 +7,13 @@ Template: twentytwentyfive
 :root {
     --primaryBlue: #0A3A76;
     --secondaryBlue: #416CAA;
+    --tertiaryBlue: #194D9A;
     --headingLineColor: #c2c2c2;
     --globalClamp: 1vw;
 }
 
 body {
+    min-width: 380px;
     background-color: white;
 }
 
@@ -117,8 +119,8 @@ h2.headingTitle {
 
 #sectorsSectionHome button.sectorBox {
     padding: 0px;
-    border: 1px solid var(--primaryBlue);
-    background-color: var(--primaryBlue);
+    border: 1px solid var(--tertiaryBlue);
+    background-color: var(--tertiaryBlue);
 }
 
 .sectorsStack button:focus {
@@ -239,6 +241,21 @@ div#modalOverlay {
     font-weight: bold;
 }
 
+/* Homepage know more */
+#contactUsLinkHome {
+  display: inline-block;
+  padding: 7px 30px;
+  border-radius: 2px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(
+    90deg,
+    var(--tertiaryBlue) 0%,
+    rgb(16,77,163) 50%,
+    var(--tertiaryBlue) 99%
+  );
+}
 
 
 
