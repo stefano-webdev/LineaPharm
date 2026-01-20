@@ -4,6 +4,13 @@ Template: twentytwentyfive
 */
 
 /* Global settings */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
 :root {
     --primaryBlue: #0A3A76;
     --secondaryBlue: #416CAA;
@@ -20,15 +27,13 @@ body {
 }
 
 h3 {
-    font-size: clamp(19px, var(--globalClamp), 23px);
     color: white;
     font-weight: bold;
-    margin: 12px 0px;
 }
 
-/* p {
-    font-size: clamp(16px, var(--globalClamp), 20px);
-} */
+body button {
+    cursor: pointer;
+}
 
 .paragraphCenter {
     text-align: center;
@@ -55,17 +60,20 @@ header {
     top: 0px;
     padding: 0px 18px 0px 18px;
     background-color: white;
-    z-index: 1;
-    border-bottom: 1px solid rgb(227, 227, 227);
+    z-index: 3;
+    border-bottom: 1px solid rgb(213, 213, 213);
 }
 
-#siteLogo {
-    display: flex;
-    gap: 7px;
+a#siteLogo {
     text-decoration: none;
 }
 
-#siteLogo h1 {
+a#siteLogo div {
+    display: flex;
+    gap: 7px;
+}
+
+a#siteLogo p {
     font-size: clamp(26px, var(--globalClamp), 31px);
     border-bottom: 1px solid black;
     border-color: var(--primaryBlue);
@@ -74,12 +82,12 @@ header {
     letter-spacing: 2px;
 }
 
-#siteLogo h1 span:nth-child(1) {
+a#siteLogo p span:nth-child(1) {
     color: var(--primaryBlue);
     font-weight: bold;
 }
 
-#siteLogo h1 span:nth-child(2) {
+#siteLogo p span:nth-child(2) {
     color: var(--secondaryBlue);
 }
 
@@ -91,24 +99,35 @@ header {
 /* Homepage */
 .headingLine {
     flex-grow: 1;
+    width: 0%;
     height: 1px;
     background-color: var(--headingLineColor);
 }
 
-h2.headingTitle {
-    font-size: clamp(23px, var(--globalClamp), 29px);
+h2.headingTitle,
+section#whoIsLineapharm h1 {
+    font-size: clamp(25px, 3vw, 30px);
     font-weight: bold;
     color: var(--primaryBlue);
 }
 
 /* Homepage services */
+.paragraphGut,
+.aGut {
+    font-size: clamp(17px, 2.3vw, 19px);
+}
+
+.h3Gut {
+    font-size: clamp(19px, 2.3vw, 20px);
+}
+
 #servicesSectionHome .servicesStack,
 #sectorsSectionHome .sectorsStack {
-    width: clamp(210px, var(--globalClamp), 255px);
+    width: 210px;
 }
 
 #servicesSectionHome svg {
-    width: clamp(40px, var(--globalClamp), 50px);
+    width: 42px;
     color: white;
 }
 
@@ -122,7 +141,13 @@ h2.headingTitle {
 
 /* Homepage sectors */
 #sectorsSectionHome img {
+    display: block;
     width: 100%;
+}
+
+#sectorsSectionHome div.modalContent img {
+    width: 75%;
+    margin: 0px auto;
 }
 
 #sectorsSectionHome button.sectorBox {
@@ -141,7 +166,7 @@ h2.headingTitle {
 
 div.modalSector button {
     position: absolute;
-    top: -13px;
+    top: -19px;
     right: -13px;
     width: 35px;
     height: 35px;
@@ -152,6 +177,10 @@ div.modalSector button {
     padding: 2px 0px 0px 0px;
 }
 
+div.modalSector button:active {
+    background-color: rgb(105, 162, 249);
+}
+
 div.modalSector img {
     border-radius: 10px;
     border: 1px solid rgb(114, 114, 114);
@@ -159,32 +188,41 @@ div.modalSector img {
 
 div.modalSector h3 {
     text-align: center;
-    font-size: clamp(22px, var(--globalClamp), 26px);
+    font-size: clamp(22px, 3.7vw, 25px);
     letter-spacing: 1px;
-    margin: 12px 0px 25px 0px;
+    margin: 8px 0px 15px 0px;
     color: var(--primaryBlue);
 }
 
 div.modalSector h2 {
-    font-size: clamp(19px, var(--globalClamp), 23px);
+    font-size: clamp(18px, 3.1vw, 21px);
     font-weight: bold;
     margin: 0px;
 }
 
 div.modalSector h2:nth-of-type(2) {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 div.modalSector p {
     text-align: left;
-    font-size: clamp(15px, var(--globalClamp), 19px);
+    font-size: clamp(15px, 2.6vw, 18px);
     color: rgb(47, 47, 47);
     margin: 0px;
 }
 
 div.modalSector ul {
     margin: 5px 0px 0px 0px;
+    padding-left: 33px;
     font-size: clamp(15px, var(--globalClamp), 19px);
+}
+
+div.modalSector ul li {
+    font-size: clamp(15px, 2.6vw, 18px);
+}
+
+div.modalSector ul li:not(:first-child) {
+    margin-top: 2px;
 }
 
 div.modalSector {
@@ -196,9 +234,9 @@ div.modalSector {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.7);
     transition: transform 0.3s ease, opacity 0.3s ease;
-    padding: 20px;
-    z-index: 2;
-    width: 72%;
+    padding: 15px;
+    z-index: 5;
+    width: 82%;
     max-width: 600px;
     border-radius: 10px;
 }
@@ -209,32 +247,47 @@ div.modalSector.show {
     transform: translate(-50%, -50%) scale(1);
 }
 
+div.modalContent {
+    max-height: 70svh;
+    overflow-y: auto;
+}
+
 div#modalOverlay {
     margin: 0px;
+    padding: 0px;
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    z-index: 4;
     display: none;
 }
 
 /* Homepage certifications */
+.desktopOnlyHeading {
+    display: none;
+}
+
 #certificationsSectionHome img {
-    width: clamp(80px, var(--globalClamp), 100px);
+    width: clamp(80px, 11vw, 100px);
 }
 
 #disclaimerCertifications {
-    font-size: clamp(13px, var(--globalClamp), 15px);
+    font-size: clamp(13px, 1.77vw, 14px);
     color: rgb(104, 104, 104);
     margin: 0px;
 }
 
 /* Homepage numbers */
+#ourNumbersFlex {
+    align-items: stretch;
+}
+
 .boxNumbersStack {
-    width: clamp(190px, var(--globalClamp), 220px);
+    justify-content: center;
+    width: 190px;
     background-color: #EFF0F3;
     padding: 12px;
 }
@@ -245,7 +298,7 @@ div#modalOverlay {
 
 .boxNumbersStack p:nth-child(1) {
     color: var(--primaryBlue);
-    font-size: clamp(36px, var(--globalClamp), 38px);
+    font-size: clamp(36px, 4.9vw, 38px);
     font-weight: bold;
 }
 
@@ -257,17 +310,37 @@ div#modalOverlay {
     font-weight: bold;
     color: white;
     text-decoration: none;
-    background: linear-gradient(90deg,
-            var(--tertiaryBlue) 0%,
-            rgb(16, 77, 163) 50%,
-            var(--tertiaryBlue) 99%);
+    background-color: var(--tertiaryBlue);
+}
+
+#contactUsLinkHome:active {
+    background-color: hsl(214, 72%, 19%);
+    transform: scale(0.98);
 }
 
 
 /* Posts */
 .myHomeQueryLoop {
     margin-top: 17px;
-    padding: 0px 20px;
+}
+
+.myHomeQueryLoop li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+}
+
+.myHomeQueryLoop li h2,
+.myHomeQueryLoop li div {
+    max-width: 750px;
+    text-align: center;
+}
+
+.myHomeQueryLoop time,
+div.postDate time,
+.taxonomy-post_tag a {
+    font-size: clamp(14px, 2vw, 16px);
 }
 
 .myPostQueryLoop {
@@ -287,8 +360,10 @@ ul.allPosts li:first-child {
 }
 
 .h2TitlePost {
-    margin-top: 5px;
-    margin-bottom: 4px;
+    font-size: clamp(28px, 3.8vw, 31px);
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 6px;
 }
 
 .myExcerpt {
@@ -297,6 +372,7 @@ ul.allPosts li:first-child {
 
 .myExcerpt p:nth-child(1) {
     font-style: italic;
+    font-size: clamp(17px, 2.3vw, 19px);
 }
 
 .myExcerpt p:nth-child(2) {
@@ -308,8 +384,12 @@ div.postDate {
     margin-top: 7px;
 }
 
-div.postDate time {
-    font-size: clamp(14px, var(--globalClamp), 16px);
+.postDate {
+    text-align: center;
+}
+
+.wp-block-post-excerpt__more-link {
+    font-size: clamp(17px, 2.3vw, 19px);
 }
 
 figure.wp-block-post-featured-image {
@@ -322,12 +402,16 @@ figure.wp-block-post-featured-image img {
 
 figure.featuredImageHome {
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 figure.featuredImageHome img {
     border: 2px solid var(--primaryBlue);
     max-width: 500px;
+}
+
+h2#allPosts {
+    font-size: clamp(17px, 5.4vw, 19px);
 }
 
 
@@ -367,6 +451,7 @@ div.paragraphNoMargin p {
 svg.value {
     width: 100%;
     max-width: 100px;
+    display: block;
 }
 
 /* Our team */
@@ -385,6 +470,15 @@ section#ourMission {
 
 /* Quality page */
 /* Hero */
+div.gradientBlue {
+    position: relative;
+}
+
+div.gradientBlue>div {
+    position: relative;
+    z-index: 2;
+}
+
 .h2Underline {
     width: fit-content;
 }
@@ -396,13 +490,6 @@ section#ourMission {
     height: 1px;
     background-color: #8bb5d8;
     margin-top: 6px;
-}
-
-div.gradientBlue {
-    background: linear-gradient(90deg,
-            rgba(23, 55, 117, 1) 0%,
-            rgba(35, 95, 173, 1) 40%,
-            rgba(255, 255, 255, 1) 100%);
 }
 
 /* Quality main */
@@ -430,13 +517,17 @@ section#contactQuality h2::after {
     margin: 0px auto;
     padding: 10px 30px;
     border-radius: 3px;
+    font-size: clamp(17px, 2.3vw, 19px);
     font-weight: bold;
     color: white;
     text-decoration: none;
-    background: linear-gradient(90deg,
-            var(--tertiaryBlue) 0%,
-            rgb(16, 77, 163) 50%,
-            var(--tertiaryBlue) 99%);
+    background-color: var(--tertiaryBlue);
+    transition: none;
+}
+
+#contactButtonQuality:active {
+    background-color: hsl(214, 72%, 19%);
+    transform: scale(0.98);
 }
 
 /* Services page */
@@ -444,7 +535,7 @@ section#contactQuality h2::after {
 #produzione,
 #ricerca-e-sviluppo,
 #confezionemento {
-    scroll-margin-top: 40px;
+    scroll-margin-top: 77px;
 }
 
 div.servicesList ul {
@@ -456,8 +547,8 @@ div.servicesList ul li:not(:first-child) {
 }
 
 svg.services {
-    width: 23px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
 }
 
 svg#boxServices {
@@ -479,6 +570,7 @@ svg.linkedin {
 }
 
 a#followLinkedin {
+    font-size: clamp(17px, 2.3vw, 19px);
     background-color: transparent;
     color: var(--tertiaryBlue);
     font-weight: bolder;
@@ -491,7 +583,6 @@ div#formContacts form input[type="email"],
 div#formContacts form textarea {
     width: 100%;
     padding: 11px;
-    font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 4px;
     border: 2px solid rgb(180, 180, 180);
@@ -514,6 +605,13 @@ div#formContacts form p {
     margin: 23px 0px;
 }
 
+div#formContacts label,
+div#formContacts input,
+div#formContacts textarea,
+div#formContacts span.wpcf7-list-item-label {
+    font-size: clamp(17px, 2.3vw, 19px);
+}
+
 div#formContacts p:nth-of-type(5) {
     margin-bottom: 0px;
 }
@@ -528,9 +626,10 @@ div#formContacts form p:last-of-type {
 }
 
 div#formContacts form span.wpcf7-spinner {
+    margin: 0px;
     position: absolute;
     top: 50%;
-    right: 25%;
+    right: calc(50% - 125px);
     transform: translateY(-50%);
 }
 
@@ -546,7 +645,7 @@ div#formContacts input[type="checkbox"] {
     width: 18px;
     height: 18px;
     vertical-align: top;
-    margin: 3px 4px 3px 0px;
+    margin: 3px 4px 1px 0px;
 }
 
 div#formContacts .wpcf7-list-item-label a {
@@ -558,37 +657,246 @@ div#formContacts .wpcf7-list-item {
     margin: 0px;
 }
 
-div#formContacts form input[type="submit"] {
+div#formContacts input[type="submit"] {
+    font-size: clamp(18px, 2.45vw, 20px);
     display: block;
     margin: 0px auto;
     background-color: #1b66b1;
     color: white;
     padding: 10px 60px;
     border-radius: 4px;
-    font-size: 18px;
     border: none;
 }
 
+div#formContacts input[type="submit"]:enabled {
+    cursor: pointer;
+}
+
+div#formContacts input[type="submit"]:enabled:active {
+    background-color: hsl(214, 74%, 24%);
+    transform: scale(0.98);
+}
+
+
+/* Custom menu */
+.wp-block-navigation__responsive-container-open svg {
+    display: none;
+}
+
+.wp-block-navigation__responsive-container-open {
+    position: relative;
+    width: 25px;
+    height: 20px;
+}
+
+.wp-block-navigation__responsive-container-open::before,
+.wp-block-navigation__responsive-container-open::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primaryBlue);
+}
+
+.wp-block-navigation__responsive-container-open::before {
+    box-shadow: 0px 8px 0px var(--primaryBlue);
+    top: 0px;
+}
+
+.wp-block-navigation__responsive-container-open::after {
+    bottom: 1px;
+}
+
+/* Style on open menu */
+header .wp-block-navigation ul li {
+    font-size: clamp(20px, 2.45vw, 23px);
+    letter-spacing: 2px;
+}
+
+header .wp-block-navigation ul li a {
+    border-radius: 2px;
+}
+
+header .wp-block-navigation ul li.current-menu-item>a {
+    font-weight: bold;
+    border-bottom: 2px solid var(--primaryBlue);
+}
+
+body button.wp-block-navigation__responsive-container-close {
+    top: 3px;
+    right: -11.5px;
+}
+
+body button.wp-block-navigation__responsive-container-close svg {
+    fill: var(--primaryBlue);
+    transform: scale(1.6);
+    transform-origin: center;
+    width: 24px;
+    height: 24px;
+}
+
+body div.wp-block-navigation__responsive-container-content ul {
+    gap: clamp(30px, 3.2vw, 45px);
+}
 
 /* Responsiveness */
-@media (max-width: 1199px) {
-    .desktopOnlyHeading {
+/* Open menu on desktop devices */
+@media (max-width: 1009px) {
+    body button.wp-block-navigation__responsive-container-open:not(.always-shown) {
+        display: flex;
+    }
+
+    body div.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+        background-color: rgba(0, 0, 0, 0);
         display: none;
+        position: relative;
+        width: auto;
     }
 }
 
-@media (max-width: 1280px) {
-    body div.flexServices.flexServices2 {
-        flex-direction: column-reverse;
-        align-self: center;
+/* Desktop with real hover and fine cursor */
+@media (hover: hover) and (pointer: fine) {
+
+    /* Home */
+    div.modalSector button:hover {
+        background-color: rgb(105, 162, 249);
     }
 
-    body div.flexServices.flexServices2 div:nth-child(1),
-    body div.flexServices.flexServices2 div:nth-child(2) {
+    div.modalSector button:active {
+        background-color: rgb(71, 130, 221);
+    }
+
+    #contactUsLinkHome:hover {
+        background-color: hsl(214, 72%, 27%);
+    }
+
+    #contactUsLinkHome:active {
+        background-color: hsl(214, 72%, 19%);
+        transform: scale(0.98);
+    }
+
+    /* Contacts */
+    a#followLinkedin:hover {
+        text-decoration: underline;
+    }
+
+    div#formContacts input[type="submit"]:enabled:hover {
+        background-color: hsl(214, 74%, 32%);
+    }
+
+    div#formContacts input[type="submit"]:enabled:active {
+        background-color: hsl(214, 74%, 24%);
+        transform: scale(0.98);
+    }
+
+    /* Quality */
+    #contactButtonQuality:hover {
+        background-color: hsl(214, 72%, 27%);
+    }
+
+    #contactButtonQuality:active {
+        background-color: hsl(214, 72%, 19%);
+        transform: scale(0.98);
+    }
+}
+
+/* Desktop starting from 1025px */
+@media (min-width: 1025px) {
+
+    /* Home */
+    span.desktopOnlyHeading {
+        display: inline;
+    }
+
+    div.modalSector {
+        padding: 22px;
+    }
+
+    /* Quality */
+    div.gradientBlue {
+        background-image: linear-gradient(90deg,
+                rgba(23, 55, 117, 1) 0%,
+                rgba(35, 95, 173, 1) 50%,
+                rgba(255, 255, 255, 1) 100%);
+    }
+}
+
+/* Tablet up to 1024px */
+@media (max-width: 1024px) {
+
+    /* Home */
+    div.modalSector {
+        padding: 22px;
+    }
+
+    /* Quality */
+    div.gradientBlue {
+        background-image: url("/wp-content/uploads/2026/01/scienziata-mobile.webp");
+        background-size: cover;
+        background-position: 50% 28%;
+        background-repeat: no-repeat;
+    }
+
+    div.gradientBlue::before {
+        content: "";
+        position: absolute;
+        inset: 0px;
+        background: linear-gradient(180deg,
+                rgba(23, 55, 117, 0.85) 0%,
+                rgba(35, 95, 173, 0.85) 100%);
+        z-index: 1;
+        opacity: 0.6;
+    }
+
+    div#standardRow {
+        max-width: 400px;
+    }
+
+    /* Who we are */
+    svg.value {
+        max-width: 80px;
+    }
+}
+
+/* Mobile up to 767px */
+@media (max-width: 767px) {
+
+    /* Quality */
+    svg.security {
+        width: 17px;
+    }
+
+    /* Who we are */
+    div#ourValues,
+    div#ourTeam {
+        max-width: 350px;
+    }
+
+    /* Services */
+    body div.elementor-element div.flex-services {
+        padding: 20px;
+    }
+}
+
+/* Specific responsive layout for "Our services" section */
+@media (max-width: 1280px) {
+    body div.elementor-element div.text-container {
+        padding: 0px;
+    }
+
+    body .elementor-element div.flex-services {
+        flex-direction: column-reverse;
+        padding: 30px 25px 30px 25px;
+        box-shadow: 0px 20px 16px 5px rgba(221, 221, 221, 0.4) !important;
+        align-items: center;
+    }
+
+    body div.elementor-element div.flex-services>div {
         width: 100%;
     }
 
-    body div.flexServices.flexServices2 div:nth-child(1) img {
+    body div.elementor-element div.flex-services div:nth-child(1) img {
         max-width: 580px;
     }
 }

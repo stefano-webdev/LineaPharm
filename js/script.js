@@ -1,6 +1,11 @@
+// Variables
+// Homepage sectors modals logic
 const buttons = document.querySelectorAll('#sectorsSectionHome .sectorBox');
 const modals = document.querySelectorAll('.modalSector');
 const overlay = document.querySelector('#modalOverlay');
+
+// Make mobile devices recognize touch events
+document.addEventListener("touchstart", function() {}, true);
 
 // Every button click opens the corresponding modal
 buttons.forEach((btn, index) => {
