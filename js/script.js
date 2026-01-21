@@ -1,6 +1,7 @@
 // Variables
 // Homepage sectors modals logic
-const buttons = document.querySelectorAll('#sectorsSectionHome .sectorBox');
+const openModalButtons = document.querySelectorAll('#sectorsSectionHome .sectorBox');
+const closeModalButtons = document.querySelectorAll('#sectorsSectionHome .modalClose');
 const modals = document.querySelectorAll('.modalSector');
 const overlay = document.querySelector('#modalOverlay');
 
@@ -8,24 +9,26 @@ const overlay = document.querySelector('#modalOverlay');
 document.addEventListener("touchstart", function() {}, true);
 
 // Every button click opens the corresponding modal
-buttons.forEach((btn, index) => {
+openModalButtons.forEach((btn, index) => {
     btn.addEventListener('click', () => {
         overlay.style.display = 'block';
         modals.forEach(mod => mod.classList.remove('show'));
         modals[index].classList.add('show');
         btn.setAttribute('aria-expanded', 'true');
         modals[index].setAttribute('aria-hidden', 'false');
+        closeModalButtons[index].style.visibility = 'visible';
     });
 });
 
 // Clicking the 'x' button closes the modal
-document.querySelectorAll('#sectorsSectionHome .modalClose').forEach((closeBtn, index) => {
+closeModalButtons.forEach((closeBtn, index) => {
     closeBtn.addEventListener('click', () => {
-        buttons[index].focus();
+        openModalButtons[index].focus();
         modals[index].classList.remove('show');
         modals[index].setAttribute('aria-hidden', 'true');
-        buttons[index].setAttribute('aria-expanded', 'false');
+        openModalButtons[index].setAttribute('aria-expanded', 'false');
         overlay.style.display = 'none';
+        closeBtn.style.visibility = 'hidden';
     });
 });
 
@@ -36,7 +39,7 @@ window.addEventListener('click', (event) => {
         modals.forEach((mod, index) => {
             mod.classList.remove('show');
             mod.setAttribute('aria-hidden', 'true');
-            buttons[index].setAttribute('aria-expanded', 'false');
+            openModalButtons[index].setAttribute('aria-expanded', 'false');
         });
     }
 });
