@@ -4,11 +4,12 @@ Template: twentytwentyfive
 */
 
 /* Global settings */
-*,
-*::before,
-*::after {
+body *,
+body *::before,
+body *::after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 :root {
@@ -101,10 +102,21 @@ a#siteLogo p span:nth-child(1) {
 
 
 /* Homepage */
-a#contactUsLinkHome,
-div#formContacts input[type="submit"] {
-    outline-color: var(--primaryBlue);
-    outline-offset: 3px;
+a.aBlue {
+    color: var(--secondaryBlue);
+}
+
+a.wp-block-post-excerpt__more-link:active,
+a.aBlue:active {
+    color: hsl(215, 45%, 22%);
+}
+
+a.aWhite {
+    color: white;
+}
+
+a.aWhite:active {
+    color: hsl(0, 0%, 85%);
 }
 
 .headingLine {
@@ -155,15 +167,8 @@ section#servicesSectionHome a {
 }
 
 /* Homepage sectors */
-#sectorsSectionHome button.sectorBox {
-    outline-color: black;
-    outline-offset: 7px;
-}
 
 #sectorsSectionHome button.modalClose {
-    outline-color: rgb(62, 166, 222);
-    outline-width: 3px;
-    outline-offset: 3px;
     visibility: hidden;
 }
 
@@ -609,7 +614,6 @@ svg.linkedin {
 a#followLinkedin {
     font-size: clamp(17px, 2.3vw, 19px);
     background-color: transparent;
-    color: var(--tertiaryBlue);
     font-weight: bolder;
     padding: 0px;
 }
@@ -686,7 +690,6 @@ div#formContacts input[type="checkbox"] {
 }
 
 div#formContacts .wpcf7-list-item-label a {
-    color: var(--tertiaryBlue);
     font-weight: bolder;
 }
 
@@ -809,6 +812,14 @@ footer p {
     font-size: clamp(17px, 2.3vw, 19px);
 }
 
+footer a[target="_blank"] {
+    color: #9195a9;
+}
+
+footer a[target="_blank"]:active {
+    color: hsl(230, 12%, 52%);
+}
+
 /* Responsiveness */
 /* Open menu on desktop devices */
 @media (max-width: 1009px) {
@@ -826,9 +837,38 @@ footer p {
 
 /* Desktop with real hover and fine cursor */
 @media (hover: hover) and (pointer: fine) {
-    /* General */
+
+    /* General and outline */
     a:hover {
         text-decoration: underline;
+    }
+
+    .focus:focus-visible,
+    a#contactButtonQuality:focus-visible,
+    a#followLinkedin:focus-visible,
+    header .wp-block-navigation ul li a:focus-visible,
+    h2.h2TitlePost a:focus-visible,
+    a.wp-block-post-excerpt__more-link:focus-visible,
+    div#formContacts input[type="submit"]:enabled:focus-visible {
+        outline: 2px solid var(--primaryBlue);
+        outline-offset: 5px;
+    }
+
+    #sectorsSectionHome button.modalClose:focus-visible {
+        outline: 3px solid rgb(62, 166, 222);
+        outline-offset: 3px;
+    }
+
+    footer a:focus-visible {
+        outline: 2px solid white;
+        outline-offset: 3px;
+    }
+
+    div#formContacts input:focus-visible,
+    div#formContacts textarea:focus-visible,
+    div#formContacts a[href="/privacy"]:focus-visible {
+        outline: 2px solid var(--primaryBlue);
+        outline-offset: 1px;
     }
 
     /* Header */
@@ -854,6 +894,24 @@ footer p {
         transform: scale(0.98);
     }
 
+    a.wp-block-post-excerpt__more-link:hover,
+    a.aBlue:hover {
+        color: hsl(215, 45%, 23%);
+    }
+
+    a.wp-block-post-excerpt__more-link:active,
+    a.aBlue:active {
+        color: hsl(215, 45%, 0%);
+    }
+
+    a.aWhite:hover {
+        color: hsl(0, 0%, 85%);
+    }
+
+    a.aWhite:active {
+        color: hsl(0, 0%, 70%);
+    }
+
     /* Contacts */
     a#followLinkedin:hover {
         text-decoration: underline;
@@ -876,6 +934,15 @@ footer p {
     #contactButtonQuality:active {
         background-color: hsl(214, 72%, 19%);
         transform: scale(0.98);
+    }
+
+    /* Footer */
+    footer a[target="_blank"]:hover {
+        color: hsl(230, 12%, 52%);
+    }
+
+    footer a[target="_blank"]:active {
+        color: hsl(230, 12%, 41%);
     }
 }
 

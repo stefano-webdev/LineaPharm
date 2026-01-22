@@ -24,3 +24,12 @@ Il progetto include:
 - Bottone di invio nel form di contatto abilitato solo se tutti i campi sono validi  
 - Tab order coerente e funzionale su tutte le pagine
 - Bottoni e testi coerenti, chiari e con un buon contrasto colori
+
+## Note sulla versione pubblicata online 🔧
+Per motivi pratici di pubblicazione online del progetto, il sito è stato esportato con **Simply Static** in versione statica (solo HTML/CSS/JS).  
+
+Di conseguenza:  
+- Il **form di contatto** implementato tramite plugin **Contact Form 7**, è presente e mostra la validazione e la struttura originale ma **non invia realmente email** nella versione statica.  
+- Tutte le altre funzionalità del progetto e il layout rimangono pienamente visibili e navigabili, inclusi i post dinamici e le pagine generate da Elementor.  
+
+Questa scelta mi ha permesso di avere un link live permanente del progetto completamente navigabile, in modo da mostrare il lavoro fatto con **WordPress, Elementor, Gutenberg e front-end personalizzato**, senza necessità di hosting WordPress attivo.
