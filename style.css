@@ -102,8 +102,8 @@ a#siteLogo p span:nth-child(1) {
 
 /* Homepage */
 a#contactUsLinkHome,
-a#contactButtonQuality,
 div#formContacts input[type="submit"] {
+    outline-color: var(--primaryBlue);
     outline-offset: 3px;
 }
 
@@ -173,7 +173,13 @@ section#servicesSectionHome a {
 }
 
 #sectorsSectionHome div.modalContent img {
-    width: 75%;
+    width: 100%;
+    display: block;
+    border: 1px solid rgb(114, 114, 114);
+}
+
+#sectorsSectionHome div.imgModalCont {
+    width: clamp(163px, 50.9vw, 417px);
     margin: 0px auto;
 }
 
@@ -210,7 +216,6 @@ div.modalSector button:active {
 
 div.modalSector img {
     border-radius: 10px;
-    border: 1px solid rgb(114, 114, 114);
 }
 
 div.modalSector h3 {
@@ -276,6 +281,7 @@ div.modalSector.show {
 div.modalContent {
     max-height: 70svh;
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
 
 div#modalOverlay {
