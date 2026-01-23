@@ -29,7 +29,7 @@ Il progetto include:
 Per motivi pratici di pubblicazione online del progetto, il sito è stato esportato con **Simply Static** in versione statica (solo HTML/CSS/JS).  
 
 Di conseguenza:  
-- Il **form di contatto** implementato tramite plugin **Contact Form 7**, è presente e mostra la validazione e la struttura originale ma **non invia realmente email** nella versione statica.  
+- Il **form di contatto** implementato tramite plugin **Contact Form 7** è presente e mostra la validazione client-side con la struttura originale, ma **l'invio email non è attivo** nella versione statica. È stata implementata una validazione client-side personalizzata in JavaScript per simulare il comportamento di compilazione e feedback utente.
 - Tutte le altre funzionalità del progetto e il layout rimangono pienamente visibili e navigabili, inclusi i post dinamici e le pagine generate da Elementor.  
 
 Questa scelta mi ha permesso di avere un link live permanente del progetto completamente navigabile, in modo da mostrare il lavoro fatto con **WordPress, Elementor, Gutenberg e front-end personalizzato**, senza necessità di hosting WordPress attivo.

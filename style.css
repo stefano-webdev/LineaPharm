@@ -4,6 +4,11 @@ Template: twentytwentyfive
 */
 
 /* Global settings */
+html {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
 body *,
 body *::before,
 body *::after {
@@ -40,6 +45,10 @@ body button {
 
 .paragraphCenter {
     text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 a.pageLink {
@@ -213,6 +222,8 @@ div.modalSector button {
     font-size: 20px;
     font-weight: bold;
     padding: 2px 0px 0px 0px;
+    background-color: #cde1ff;
+    color: black;
 }
 
 div.modalSector button:active {
@@ -624,7 +635,7 @@ div#formContacts form input[type="email"],
 div#formContacts form textarea {
     width: 100%;
     padding: 11px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Manrope, sans-serif;
     margin-top: 4px;
     border: 2px solid rgb(180, 180, 180);
     border-radius: 5px;
@@ -642,10 +653,6 @@ div#formContacts form textarea {
     min-height: 70px;
 }
 
-div#formContacts form p {
-    margin: 23px 0px;
-}
-
 div#formContacts label,
 div#formContacts input,
 div#formContacts textarea,
@@ -653,33 +660,45 @@ div#formContacts span.wpcf7-list-item-label {
     font-size: clamp(17px, 2.3vw, 19px);
 }
 
-div#formContacts p:nth-of-type(5) {
-    margin-bottom: 0px;
-}
-
-div#formContacts p:nth-of-type(6) {
-    margin-top: 60px;
-}
-
-div#formContacts form p:last-of-type {
-    position: relative;
-    margin-bottom: 0px;
-}
-
+div#formContacts form span.wpcf7-not-valid-tip,
+div#formContacts form div.wpcf7-response-output,
 div#formContacts form span.wpcf7-spinner {
+    display: none;
+}
+
+div#formContacts form p {
+    margin: 30px 0px 0px 0px;
+}
+
+div#formContacts form div.errMsg {
+    margin: 3px 0px 0px 0px;
+    display: none;
+}
+
+div#formContacts form div.errMsg p {
     margin: 0px;
-    position: absolute;
-    top: 50%;
-    right: calc(50% - 125px);
-    transform: translateY(-50%);
+    font-size: clamp(17px, 2.3vw, 19px);
+    color: red;
 }
 
-div#formContacts .wpcf7-response-output {
-    margin-top: 18px;
+div#formContacts form div#confirmMsg {
+    display: none;
+    text-align: center;
+    margin: 15px 0px 0px 0px;
+    padding: 5px;
+    border: 1px solid green;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 2px rgba(0, 128, 0, 0.15);
 }
 
-div#formContacts .wpcf7-not-valid-tip {
-    margin-top: 3px;
+div#formContacts form div#confirmMsg p {
+    margin: 0px;
+    font-size: clamp(16px, 2.2vw, 18px);
+}
+
+div#warningMsg p {
+    text-align: center;
+    font-size: clamp(14px, 1.9vw, 15px);
 }
 
 div#formContacts input[type="checkbox"] {
@@ -721,8 +740,11 @@ div#formContacts a[href="/privacy"] {
     text-decoration: underline;
 }
 
-
 /* Custom menu */
+header nav a:active {
+    opacity: 0.6;
+}
+
 .wp-block-navigation__responsive-container-open svg {
     display: none;
 }
@@ -839,10 +861,6 @@ footer a[target="_blank"]:active {
 @media (hover: hover) and (pointer: fine) {
 
     /* General and outline */
-    a:hover {
-        text-decoration: underline;
-    }
-
     .focus:focus-visible,
     a#contactButtonQuality:focus-visible,
     a#followLinkedin:focus-visible,
