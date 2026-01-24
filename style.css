@@ -685,8 +685,9 @@ div#formContacts form div#confirmMsg {
     display: none;
     text-align: center;
     margin: 15px 0px 0px 0px;
-    padding: 5px;
-    border: 1px solid green;
+    padding: 7px;
+    border: 1px solid #2e7d32;;
+    background-color: rgb(226, 255, 226);
     border-radius: 5px;
     box-shadow: 0px 0px 8px 2px rgba(0, 128, 0, 0.13);
 }
@@ -706,6 +707,7 @@ div#formContacts input[type="checkbox"] {
     height: 18px;
     vertical-align: top;
     margin: 3px 4px 1px 0px;
+    cursor: pointer;
 }
 
 div#formContacts .wpcf7-list-item-label a {
