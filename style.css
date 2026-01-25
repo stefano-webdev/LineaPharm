@@ -87,7 +87,7 @@ div#back-portfolio a:active {
 
 div#back-portfolio svg {
     width: clamp(15px, 2.5vw, 17px);
-    padding-top: 1px
+    transform: translateY(1px);
 }
 
 
