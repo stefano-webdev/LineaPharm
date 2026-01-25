@@ -67,6 +67,30 @@ div.e-con-full.e-flex.flexRow {
 
 
 /* Header */
+div#back-portfolio {
+    margin-top: 7px;
+    margin-left: 10px;
+}
+
+div#back-portfolio a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: clamp(15px, 2.5vw, 17px);
+    text-decoration: none;
+    width: fit-content;
+}
+
+div#back-portfolio a:active {
+    opacity: 0.6;
+}
+
+div#back-portfolio svg {
+    width: clamp(15px, 2.5vw, 17px);
+    padding-top: 1px
+}
+
+
 header {
     position: sticky;
     top: 0px;
@@ -686,7 +710,8 @@ div#formContacts form div#confirmMsg {
     text-align: center;
     margin: 15px 0px 0px 0px;
     padding: 7px;
-    border: 1px solid #2e7d32;;
+    border: 1px solid #2e7d32;
+    ;
     background-color: rgb(226, 255, 226);
     border-radius: 5px;
     box-shadow: 0px 0px 8px 2px rgba(0, 128, 0, 0.13);
@@ -892,6 +917,10 @@ footer a[target="_blank"]:active {
     }
 
     /* Header */
+    div#back-portfolio a:hover {
+        text-decoration: underline;
+    }
+
     header .wp-block-navigation ul li:not(.current-menu-item):hover a {
         text-decoration: underline;
     }
